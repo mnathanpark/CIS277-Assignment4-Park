@@ -1,6 +1,7 @@
-# CIS277-Assignment4-Park
+# CIS-277 Assignment 4: Binary Tree Explorer
 
-## Nathan Park
+## Student
+Nathan Park
 
 ## Design
 Each TreeNode has a integer value and two pointers pointing to the left and right children.
@@ -8,11 +9,11 @@ An empty tree is represented as a nullptr.
 Each traversal method (preorder, inorder, and postorder) will pass a vector by reference to store the integer values.
 Each node is allocated with new in main.cpp. The destoryTree function will take a pointer to the root of the tree as its parameter and use postorder traversal to delete each node in the tree and set the pointers to nullptr.
 
-## How to compile
+## How to Compile
 g++ -std=c++23 -Wall -Wextra -pedantic main.cpp TreeExplorer.cpp -o tree_explorer
 g++ -std=c++23 -Wall -Wextra -pedantic -I. tests/student_tests.cpp TreeExplorer.cpp -o student_tests
 
-## How to run
+## How to Run
 ./tree_explorer
 ./student_tests
 
@@ -134,7 +135,7 @@ Sum is 80.
 Reasoning for preorder traversal of tree B:
 We start at the root node 10 and record it. Then we look at the left child 30 and record it. 30 has no left child, but has a right child of 5, which we record. 5 has no children of its own, so the recursive calls all resolve on the left side of the tree. Then we look at the 20, the right child of 10, and record it. 20 has no left child, but has a right child of 15, which we record. 15 has no children of its own, so the recursive calls all resolve on the right side, and the traversal is finished.
 
-# Analysis Questions
+## Analysis Questions
 Trace the preorder, inorder, and postorder processing steps for the subtree rooted at 30 in Tree A. Explain why the sequences change while the sum does not.
 Preorder: Visit 30 (record 30), recurse left to 20 (record 20, 20 has no children), then recurse right to 40 (record 40, 40 has no children). Sequence: 30, 20, 40
 Inorder: Recurse left to 20 (left null, record 20, right null), return to 30 (record 30), then recurse right to 40 (left null, record 40, right null). Sequence: 20, 30, 40.
